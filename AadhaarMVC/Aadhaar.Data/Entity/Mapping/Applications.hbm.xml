@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+<class name="Aadhaar.Data.Entity.Applications, Aadhaar.Data" table="aspnet_Applications" >
+
+<id name="Id" column="ApplicationId" type="System.Guid"><generator class="guid"/></id>
+
+<property name="ApplicationName" column="ApplicationName" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="LoweredApplicationName" column="LoweredApplicationName" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="Description" column="Description" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="256" insert="true" update="true"/>
+
+<set name="FKaspnetRoAppli440B1D61" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="ApplicationId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.Roles, Aadhaar.Data"/>
+</set>
+<set name="FKaspnetMeAppli21B6055D" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="ApplicationId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.Membership, Aadhaar.Data"/>
+</set>
+<set name="FKaspnetUsAppli0DAF0CB05907" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="ApplicationId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.Membership, Aadhaar.Data"/>
+</set>
+<set name="FKaspnetPaAppli5AEE82B90dad" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="ApplicationId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.PersonalizationAllUsers, Aadhaar.Data"/>
+</set>
+<set name="FKaspnetUsAppli0DAF0CB0590764fc" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="ApplicationId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.Profile, Aadhaar.Data"/>
+</set>
+
+</class>
+  <!--
+        Queries used for support of base provider logic, which is assumes relationships are for a single
+        web application. Therefore, all these queries expect an application identifier to be specified.
+    -->
+  <query name="Applications.LoweredApplicationName">
+    <![CDATA[
+             from Applications as app
+            where app.LoweredApplicationName = ?
+        ]]>
+  </query>
+</hibernate-mapping>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+<class name="Aadhaar.Data.Entity.Users, Aadhaar.Data" table="aspnet_Users" >
+
+<id name="Id" column="UserId" type="System.Guid"><generator class="guid"/></id>
+
+<property name="UserName" column="UserName" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="LoweredUserName" column="LoweredUserName" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="MobileAlias" column="MobileAlias" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="16" insert="true" update="true"/>
+<property name="IsAnonymous" column="IsAnonymous" access="field.pascalcase-underscore" not-null="true" type="System.Boolean"  insert="true" update="true"/>
+<property name="LastActivityDate" column="LastActivityDate" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<many-to-one name="Application"  access="field.pascalcase-underscore" not-null="true" outer-join="auto" insert="true" update="true">
+	<column name="ApplicationId"/>
+</many-to-one>
+
+<set name="FKaspnetPeUserI693CA210" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="UserId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.PersonalizationPerUser, Aadhaar.Data"/>
+</set>
+<set name="FKroleactionsusers" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="UserId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.roleactions, Aadhaar.Data"/>
+</set>
+<set name="FKaspnetUsUserI49C3F6B7" table="UsersInRoles" cascade="save-update" inverse="false" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="UserId"/>
+	</key>
+	<many-to-many class="Aadhaar.Data.Entity.Roles, Aadhaar.Data" column="RoleId"/>
+</set>
+<joined-subclass name="Aadhaar.Data.Entity.Membership, Aadhaar.Data" table="aspnet_Membership">
+<key column="UserId"/>
+
+<property name="Password" column="Password" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="128" insert="true" update="true"/>
+<property name="PasswordFormat" column="PasswordFormat" access="field.pascalcase-underscore" not-null="true" type="System.Int32"  insert="true" update="true"/>
+<property name="PasswordSalt" column="PasswordSalt" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="128" insert="true" update="true"/>
+<property name="MobilePIN" column="MobilePIN" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="16" insert="true" update="true"/>
+<property name="Email" column="Email" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="256" insert="true" update="true"/>
+<property name="LoweredEmail" column="LoweredEmail" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="256" insert="true" update="true"/>
+<property name="PasswordQuestion" column="PasswordQuestion" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="256" insert="true" update="true"/>
+<property name="PasswordAnswer" column="PasswordAnswer" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="128" insert="true" update="true"/>
+<property name="IsApproved" column="IsApproved" access="field.pascalcase-underscore" not-null="true" type="System.Boolean"  insert="true" update="true"/>
+<property name="IsLockedOut" column="IsLockedOut" access="field.pascalcase-underscore" not-null="true" type="System.Boolean"  insert="true" update="true"/>
+<property name="CreateDate" column="CreateDate" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<property name="LastLoginDate" column="LastLoginDate" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<property name="LastPasswordChangedDate" column="LastPasswordChangedDate" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<property name="LastLockoutDate" column="LastLockoutDate" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<property name="FailedPasswordAttemptCount" column="FailedPasswordAttemptCount" access="field.pascalcase-underscore" not-null="true" type="System.Int32"  insert="true" update="true"/>
+<property name="FailedPasswordAttemptWindowStart" column="FailedPasswordAttemptWindowStart" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<property name="FailedPasswordAnswerAttemptCount" column="FailedPasswordAnswerAttemptCount" access="field.pascalcase-underscore" not-null="true" type="System.Int32"  insert="true" update="true"/>
+<property name="FailedPasswordAnswerAttemptWindowStart" column="FailedPasswordAnswerAttemptWindowStart" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<property name="Comment" column="Comment" access="field.pascalcase-underscore" not-null="false" type="StringClob"  insert="true" update="true"/>
+
+<many-to-one name="Application"  access="field.pascalcase-underscore" not-null="true" outer-join="auto" insert="true" update="true">
+	<column name="ApplicationId"/>
+</many-to-one>
+
+</joined-subclass>
+<joined-subclass name="Aadhaar.Data.Entity.Profile, Aadhaar.Data" table="aspnet_Profile">
+<key column="UserId"/>
+
+<property name="PropertyNames" column="PropertyNames" access="field.pascalcase-underscore" not-null="true" type="StringClob"  insert="true" update="true"/>
+<property name="PropertyValuesString" column="PropertyValuesString" access="field.pascalcase-underscore" not-null="true" type="StringClob"  insert="true" update="true"/>
+<property name="PropertyValuesBinary" column="PropertyValuesBinary" access="field.pascalcase-underscore" not-null="true" type="BinaryBlob"  insert="true" update="true"/>
+<property name="LastUpdatedDate" column="LastUpdatedDate" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+
+
+</joined-subclass>
+
+</class>
+  <!--
+        Queries used for support of base provider logic, which is assumes relationships are for a single
+        web application. Therefore, in cases where lists are the result they are assumed for a given
+        application identifier.
+    -->
+  <query name="Users.ById">
+    <![CDATA[
+             from Users as user
+            where user.Id = ?
+        ]]>
+  </query>
+  <query name="Users.ByLoweredName">
+    <![CDATA[
+             from Users as user
+            where user.LoweredUserName = ?
+        ]]>
+  </query>
+  <query name="Users.GetLoweredNameByLoweredEmail">
+    <![CDATA[
+            select user.LoweredUserName
+              from Users as user
+             where user.LoweredEmail = ?
+        ]]>
+  </query>
+
+  <!--
+        Queries used for support of multi-web application implementations where a single management console
+        is used for all managed applications. This allows for use of a single pool of users/roles for multiple
+        applications.
+    -->
+  <query name="Users.GetUsersOnline">
+    <![CDATA[
+              from Users as user
+             where user.LastActivityDate > ?
+        ]]>
+  </query>
+  <query name="Users.FindAll">
+    <![CDATA[
+              from Users
+        ]]>
+  </query>
+  <query name="Users.FindAllByLoweredName">
+    <![CDATA[
+              from Users as user
+             where user.LoweredUserName like ?
+        ]]>
+  </query>
+  <query name="Users.FindAllByLoweredEmail">
+    <![CDATA[
+              from Users as user
+             where user.LoweredEmail like ?
+        ]]>
+  </query>
+</hibernate-mapping>

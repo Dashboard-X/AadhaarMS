@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+<class name="Aadhaar.Data.Entity.Roles, Aadhaar.Data" table="aspnet_Roles" >
+
+<id name="Id" column="RoleId" type="System.Guid"><generator class="guid"/></id>
+
+<property name="RoleName" column="RoleName" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="LoweredRoleName" column="LoweredRoleName" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="Description" column="Description" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="256" insert="true" update="true"/>
+<many-to-one name="Application"  access="field.pascalcase-underscore" not-null="true" outer-join="auto" insert="true" update="true">
+	<column name="ApplicationId"/>
+</many-to-one>
+
+<set name="FKroleactionsroles" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="RoleId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.roleactions, Aadhaar.Data"/>
+</set>
+<set name="FKaspnetUsRoleI4AB81AF0" table="UsersInRoles" cascade="save-update" inverse="false" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="RoleId"/>
+	</key>
+	<many-to-many class="Aadhaar.Data.Entity.Membership, Aadhaar.Data" column="UserId"/>
+</set>
+
+</class>
+    <!--
+        Queries used for support of base provider logic, which is assumes relationships are for a single
+        web application. Therefore, in cases where lists are the result they are assumed for a given
+        application identifier.
+    -->
+    <query name="Roles.FindAll">
+        <![CDATA[
+              from Roles
+        ]]>
+    </query>
+    <query name="Roles.ByLoweredName">
+        <![CDATA[
+             from Roles as roles
+            where roles.LoweredRoleName = ?
+        ]]>
+    </query>
+
+    <!--
+        Queries used for support of multi-web application implementations where a single management console
+        is used for all managed applications. This allows for use of a single pool of users/roles for multiple
+        applications.
+    -->
+    <query name="Roles.GetAllRoleNames">
+        <![CDATA[
+            select roles.RoleName
+              from Roles as roles
+        ]]>
+    </query>
+</hibernate-mapping>

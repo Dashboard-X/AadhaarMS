@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Web Developer Express 2010
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Aadhaar.Web", "Aadhaar.Web\", "{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		ProjectReferences = "{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}|Aadhaar.Data.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/Aadhaar.Web"
+		Debug.AspNetCompiler.PhysicalPath = "Aadhaar.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Aadhaar.Web\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Aadhaar.Web"
+		Release.AspNetCompiler.PhysicalPath = "Aadhaar.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Aadhaar.Web\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51878"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aadhaar.Data", "Aadhaar.Data\Aadhaar.Data.csproj", "{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{14FB8FC7-19F0-43F7-9C49-4D48FA35AC4C}.Release|x86.ActiveCfg = Debug|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8D7E9FA7-AEF9-4771-A083-0A7CCF0F8DBD}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

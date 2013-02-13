@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+<class name="Aadhaar.Data.Entity.Paths, Aadhaar.Data" table="aspnet_Paths" >
+
+<id name="Id" column="PathId" type="System.Guid"><generator class="guid"/></id>
+
+<property name="Path" column="Path" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="LoweredPath" column="LoweredPath" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<many-to-one name="Application"  access="field.pascalcase-underscore" not-null="true" outer-join="auto" insert="true" update="true">
+	<column name="ApplicationId"/>
+</many-to-one>
+
+<set name="FKaspnetPePathI68487DD7" cascade="none" inverse="true" lazy="true" access="field.pascalcase-underscore">
+	<key>
+		<column name="PathId"/>
+	</key>
+	<one-to-many class="Aadhaar.Data.Entity.PersonalizationPerUser, Aadhaar.Data"/>
+</set>
+<joined-subclass name="Aadhaar.Data.Entity.PersonalizationAllUsers, Aadhaar.Data" table="aspnet_PersonalizationAllUsers">
+<key column="PathId"/>
+
+<property name="PageSettings" column="PageSettings" access="field.pascalcase-underscore" not-null="true" type="BinaryBlob"  insert="true" update="true"/>
+<property name="LastUpdatedDate" column="LastUpdatedDate" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+
+
+</joined-subclass>
+
+</class>
+</hibernate-mapping>

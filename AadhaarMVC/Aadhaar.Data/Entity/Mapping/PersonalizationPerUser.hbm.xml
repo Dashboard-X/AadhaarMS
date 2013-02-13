@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+<class name="Aadhaar.Data.Entity.PersonalizationPerUser, Aadhaar.Data" table="aspnet_PersonalizationPerUser" >
+
+<id name="Id" column="Id" type="System.Guid"><generator class="guid"/></id>
+
+<property name="PageSettings" column="PageSettings" access="field.pascalcase-underscore" not-null="true" type="BinaryBlob"  insert="true" update="true"/>
+<property name="LastUpdatedDate" column="LastUpdatedDate" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<many-to-one name="Path"  access="field.pascalcase-underscore" not-null="false" outer-join="auto" insert="true" update="true">
+	<column name="PathId"/>
+</many-to-one>
+<many-to-one name="User"  access="field.pascalcase-underscore" not-null="false" outer-join="auto" insert="true" update="true">
+	<column name="UserId"/>
+</many-to-one>
+
+
+</class>
+</hibernate-mapping>

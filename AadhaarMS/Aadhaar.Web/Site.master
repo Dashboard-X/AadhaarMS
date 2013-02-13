@@ -1,0 +1,101 @@
+﻿<%@ Master Language="C#" CodeFile="~/Site.master.cs" Inherits="SiteMaster" %>
+<%@ Register Src="~/Controls/_topNav.ascx" TagName="TopNav" TagPrefix="asp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/global-1column.dwt" codeOutsideHTMLIsLocked="false" -->
+<head runat="server">
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Custom Security Permissions System</title>
+<!-- InstanceEndEditable -->
+<link href="~/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+<body>
+<form id="form1" runat="server">
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			&nbsp;
+		</div>
+        <div id="hdrLinks" >
+        <asp:LoginView ID="LoginStatus1" runat="server">
+		<AnonymousTemplate>
+            <asp:HyperLink ID="lnkLogin" CssClass="usrLinks" NavigateUrl="~/Login.aspx" runat="server">Login</asp:HyperLink> | 
+            <asp:HyperLink ID="lnkRegister" CssClass="usrLinks" NavigateUrl="~/Register.aspx" runat="server">Register</asp:HyperLink>
+		</AnonymousTemplate>
+		<LoggedInTemplate>
+			<asp:LoginName ID="lnkUname" runat="server" FormatString="Welcome, {0}" />&nbsp;&nbsp;
+            <asp:HyperLink ID="lnkLogout" NavigateUrl="~/Logout.aspx" runat="server">Logout</asp:HyperLink>
+		</LoggedInTemplate>
+	</asp:LoginView>
+        </div>
+        
+	</div>
+	<!-- end #header -->
+	<div id="menu">
+	<asp:TopNav ID="topNav" runat="server" />
+
+  </div>
+	<!-- end #menu -->
+	<div id="page">
+	<div id="page-bgtop">
+	<div id="page-bgbtm">
+		
+        <div id="content">
+        <div id="box">
+                                <!--- box border -->
+                                <a id="A1" name="top"></a>
+                                <div id="lb">
+                                        <div id="rb">
+                                                <div id="bb">
+
+                                                        <div id="blc">
+                                                                <div id="brc">
+                                                                        <div id="tb">
+                                                                                <div id="tlc">
+                                                                                        <div id="trc"><!-- InstanceBeginEditable name="mainContent" -->
+        <asp:Label id="lblErrorMasterPg" Visible="false" runat="server"></asp:Label>
+        <asp:contentplaceholder id="c" runat="server">
+        
+        </asp:contentplaceholder>
+
+        <asp:Literal runat="server" ID="SecurityDisclosure"></asp:Literal>
+	<br />
+	<br />
+        &nbsp;
+    
+		        
+
+		<!-- InstanceEndEditable -->
+                                                                                        
+                                                                                  </div>
+                                                                                </div>
+                                                                          </div>
+                                                                    </div>
+                                                              </div>
+                                                       </div>
+                                               </div>
+                                        </div>
+					</div>
+
+<div style="clear: both;">&nbsp;</div>
+		</div>
+		<!-- end #content -->
+        <div style="clear:both">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	<!-- end #page -->
+</div>
+</form>
+	<div id="footer">
+		<p>Copyright (c) 2011 Custom Security. All rights reserved.</p>
+	</div>
+	<!-- end #footer -->
+</body>
+<!-- InstanceEnd --></html>
+

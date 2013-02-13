@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+<class name="Aadhaar.Data.Entity.WebEvent_Events, Aadhaar.Data" table="aspnet_WebEvent_Events" >
+
+<id name="Id" column="EventId" type="System.String"><generator class="assigned"/></id>
+
+<property name="EventTimeUtc" column="EventTimeUtc" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<property name="EventTime" column="EventTime" access="field.pascalcase-underscore" not-null="true" type="System.DateTime"  insert="true" update="true"/>
+<property name="EventType" column="EventType" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="EventSequence" column="EventSequence" access="field.pascalcase-underscore" not-null="true" type="System.Decimal"  insert="true" update="true"/>
+<property name="EventOccurrence" column="EventOccurrence" access="field.pascalcase-underscore" not-null="true" type="System.Decimal"  insert="true" update="true"/>
+<property name="EventCode" column="EventCode" access="field.pascalcase-underscore" not-null="true" type="System.Int32"  insert="true" update="true"/>
+<property name="EventDetailCode" column="EventDetailCode" access="field.pascalcase-underscore" not-null="true" type="System.Int32"  insert="true" update="true"/>
+<property name="Message" column="Message" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="1024" insert="true" update="true"/>
+<property name="ApplicationPath" column="ApplicationPath" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="256" insert="true" update="true"/>
+<property name="ApplicationVirtualPath" column="ApplicationVirtualPath" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="256" insert="true" update="true"/>
+<property name="MachineName" column="MachineName" access="field.pascalcase-underscore" not-null="true" type="System.String"  length="256" insert="true" update="true"/>
+<property name="RequestUrl" column="RequestUrl" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="1024" insert="true" update="true"/>
+<property name="ExceptionType" column="ExceptionType" access="field.pascalcase-underscore" not-null="false" type="System.String"  length="256" insert="true" update="true"/>
+<property name="Details" column="Details" access="field.pascalcase-underscore" not-null="false" type="StringClob"  insert="true" update="true"/>
+
+
+</class>
+</hibernate-mapping>

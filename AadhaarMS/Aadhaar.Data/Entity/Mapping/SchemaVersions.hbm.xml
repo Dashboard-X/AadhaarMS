@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-lazy="false">
+
+<class name="Aadhaar.Data.Entity.SchemaVersions, Aadhaar.Data" table="aspnet_SchemaVersions" >
+
+<composite-id name="Id" class="Aadhaar.Data.Entity.Components.PairIdComponent, Aadhaar.Data">
+	<key-property name="Key1" column="CompatibleSchemaVersion" type="System.String"/>
+	<key-property name="Key2" column="Feature" type="System.String"/>
+</composite-id>
+
+<property name="Feature" column="Feature" access="field.pascalcase-underscore" not-null="true" type="System.String" insert="false" update="false"  length="128"/>
+<property name="CompatibleSchemaVersion" column="CompatibleSchemaVersion" access="field.pascalcase-underscore" not-null="true" type="System.String" insert="false" update="false"  length="128"/>
+<property name="IsCurrentVersion" column="IsCurrentVersion" access="field.pascalcase-underscore" not-null="true" type="System.Boolean"  insert="true" update="true"/>
+
+
+</class>
+</hibernate-mapping>
